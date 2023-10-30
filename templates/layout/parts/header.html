@@ -1,0 +1,53 @@
+<header class="p-3 text-bg-dark fixed-top">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                    <use xlink:href="#bootstrap"/>
+                </svg>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+{#                <li><a href="/news/" class="nav-link px-2 text-secondary">Новости</a></li>#}
+                <li><a href="/news/" class="nav-link px-2 text-white">Новости</a></li>
+                <li><a href="/news/search/" class="nav-link px-2 text-white">Поиск</a></li>
+                <li><a href="/news/add/" class="nav-link px-2 text-white">Добавить</a></li>
+                <li><a href="/news/categories/" class="nav-link px-2 text-white">Категории</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">.....</a></li>
+            </ul>
+
+            <div class="text-end">
+                {% if user.is_authenticated %}
+                    <button type="button" class="btn btn-outline-light me-2">
+                        <a href="{% url 'sign:logout' %}" class="nav-link px-2 text">Logout</a>
+                    </button>
+                    <button type="button" class="btn btn-info" disabled>
+{#                        <a href="{% url 'sign:logout' %}" class="nav-link px-2 text">Logout</a>#}
+                    {{ user.username }}
+                    </button>
+
+                    {% if is_not_authors %}
+                        <a class="btn btn-info" href="{% url 'sign:getauthor' %}">
+                            Хочу стать автором!
+                        </a>
+                    {% else %}
+                        <button type="button" class="btn btn-info" disabled>
+                            Вы являетесь автором
+                        </button>
+                    {% endif %}
+
+                {% else %}
+                    <button type="button" class="btn btn-outline-light me-2">
+                        {#                        <a href="{% url 'sign:login' %}" class="nav-link px-2">Login</a>#}
+                        <a href="/accounts/login/" class="nav-link px-2">Login</a>
+                    </button>
+                    <button type="button" class="btn btn-outline-light me-2">
+                        {#                        <a href="{% url 'sign:signup' %}" class="nav-link px-2 text">Sign-up</a>#}
+                        <a href="/accounts/signup/" class="nav-link px-2">Sign-up</a>
+                    </button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header>
+

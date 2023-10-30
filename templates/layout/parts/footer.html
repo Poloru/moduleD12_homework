@@ -1,0 +1,36 @@
+{#<footer class="footer mt-auto py-3 bg-light fixed-bottom">#}
+{#<footer class="footer mt-auto py-3 bg-light navbar-static-bottom">#}
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4 bg-light">
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-4">
+                <p>Place sticky footer content here</p>
+            </div>
+
+            <div class="col-md-3 mb-md-0 mb-3">
+                <p>---></p>
+            </div>
+
+            {% if user.is_authenticated %}
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <button type="button" class="btn btn-outline-light me-2">
+                        <a href="{% url 'sign:logout' %}" class="nav-link px-2 text">Logout</a>
+                    </button>
+                </div>
+            {% else %}
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <button type="button" class="btn btn-outline-light me-2">
+                        <a href="{% url 'sign:login' %}" class="nav-link px-2">Login(Old)</a>
+                    </button>
+                    <button type="button" class="btn btn-outline-light me-2">
+                        <a href="{% url 'sign:signup' %}" class="nav-link px-2 text">Sign-up(Old)</a>
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</footer>
+
+<!-- Footer -->

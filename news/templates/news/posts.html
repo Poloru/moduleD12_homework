@@ -1,0 +1,67 @@
+{% extends 'layout/default.html' %}
+
+<!-- не забываем заранее загружать наши фильтры! -->
+{% load custom_filters %}
+
+<!-- Название у нас будет Новости, статьи -->
+{% block title %}
+    Новости, статьи
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим все посты -->
+{% block content %}
+    {% if category %}
+        {% if user not in category.subscribers.filter %}
+            <a href="{% url 'news:subscribe' category.pk %}" class="btn btn-primary">Подписаться</a>
+        {% else %}
+            <a href="{% url 'news:unsubscribe' category.pk %}" class="btn btn-secondary btn-sm">Отписаться</a>
+        {% endif %}
+
+        <h1 align="center" >Новости и статьи категории `{{ category.name }}`:</h1>
+
+        <h5 align="center"><i><u> Всего новостей и статей: {{ category.post_set.count }}
+            (на странице: {{ posts|length }})</u></i>
+        </h5>
+    {% else %}
+        <h1 align="center" >Все новости и статьи:</h1>
+        <h5 align="center"><i><u> Всего новостей и статей: {{ posts_count }}
+            (на странице: {{ posts|length }})</u></i>
+        </h5>
+    {% endif %}
+
+    <h5 align="right">{{ time_now| date:'d-M-Y H:i' }}</h5>
+    <hr>
+
+    {% if posts %}
+        <table class="table">
+            <tr>
+                <th scope="col"> Название</th>
+                <th scope="col"><p align="justify"> Дата публикации</p></th>
+                <th scope="col">Содержимое</th>
+                <th scope="col">Действия</th>
+            </tr>
+            {% for post in posts %}
+                <tr class="{% cycle 'blue_tr' 'white_tr' %}">
+                    <td>
+                        <a href="{% url 'news:post_detail' post.pk %}">
+                            {{ post.title|truncatewords:8|truncatechars:50|Censor2 }}
+                        </a>
+                    </td>
+                    <td>{{ post.dateCreation| date:'d-M-Y H:i' }}</td>
+                    <td>{{ post.text|truncatechars:50|Censor2 }}</td>
+                    <td>
+                        <a href="{% url 'news:post_update' post.pk %}">Редактирование</a>
+                        <a href="{% url 'news:post_delete' post.pk %}">Удалить</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        {% include 'news/parts/paginator.html' %}
+
+    {% else %}
+        <h2>Новостей и статей нет!</h2>
+
+    {% endif %}
+
+{% endblock content %}

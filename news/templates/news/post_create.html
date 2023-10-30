@@ -1,0 +1,19 @@
+{% extends 'layout/default.html' %}
+
+
+{% block title %}
+Создание статьи
+{% endblock title %}
+
+{% block content %}
+
+<h3>Добавление статьи или новости</h3>
+
+<form method="POST">
+ {% csrf_token %}
+ {{ form }}
+   <!-- Теперь нам нужна только готовая форма и кнопка -->
+   <input class="btn btn-success my-button" type="submit" value="Добавить">
+</form>
+
+{% endblock content %}

@@ -1,0 +1,14 @@
+** 2023-10-13 00:16:29,718 INFO autoreload Watching for file changes with StatReloader
+** 2023-10-13 00:18:40,116 INFO autoreload /home/marat/PycharmProjects/Module_D/D12_NewsPaper/NewsPort/NewsPort/settings.py changed, reloading.
+** 2023-10-13 00:18:41,354 INFO autoreload Watching for file changes with StatReloader
+** 2023-10-13 00:20:21,628 INFO autoreload /home/marat/PycharmProjects/Module_D/D12_NewsPaper/NewsPort/NewsPort/settings.py changed, reloading.
+** 2023-10-13 00:51:46,976 INFO autoreload Watching for file changes with StatReloader
+** 2023-10-13 00:52:59,096 INFO autoreload /home/marat/PycharmProjects/Module_D/D12_NewsPaper/NewsPort/news/views.py changed, reloading.
+** 2023-10-13 00:53:00,733 INFO autoreload Watching for file changes with StatReloader
+** 2023-10-13 00:53:19,445 INFO views == Пользователь: 'smg_2006' подписался на категорию: 'Python' ==
+** 2023-10-13 00:53:34,381 INFO views == Пользователь: 'smg_2006' отписался от категории: 'Python' ==
+** 2023-10-13 00:53:39,790 INFO views == Пользователь: 'smg_2006' отписался от категории: 'JS' ==
+** 2023-10-13 00:53:41,619 INFO views == Пользователь: 'smg_2006' подписался на категорию: 'JS' ==
+** 2023-10-13 00:54:36,665 INFO autoreload /home/marat/PycharmProjects/Module_D/D12_NewsPaper/NewsPort/news/views.py changed, reloading.
+** 2023-10-13 00:54:38,430 INFO autoreload Watching for file changes with StatReloader
+** 2023-10-13 00:55:01,671 INFO autoreload /home/marat/PycharmProjects/Module_D/D12_NewsPaper/NewsPort/NewsPort/settings.py changed, reloading.

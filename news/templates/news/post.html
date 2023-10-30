@@ -1,0 +1,18 @@
+{% extends 'layout/default.html' %}
+
+<!-- не забываем заранее загружать наши фильтры! -->
+{% load custom_filters %}
+
+<!-- Название у нас будет "Новость или статья - Заголовок..." -->
+{% block title %}
+    {{ post.get_categoryType_display }}: {{ post.title|truncatechars:10  }}
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим саму Новость или статью,
+ первичный ключ которого был передан в адрес -->
+{% block content %}
+    <h1 align="center">{{ post.title|Censor }}</h1>
+    <hr>
+    <p>{{ post.text|Censor }}</p>
+    <h5 align="right">{{ post.dateCreation| date:'d-M-Y H:i' }}</h5>
+{% endblock content %}

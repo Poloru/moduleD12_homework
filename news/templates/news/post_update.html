@@ -1,0 +1,17 @@
+{% extends 'layout/default.html' %}
+
+
+{% block title %}
+Редактирование статьи
+{% endblock title %}
+
+{% block content %}
+<h3>Редактирование статьи или новости</h3>
+
+<form method="POST">
+ {% csrf_token %}
+ {{ form }}
+   <input class="btn btn-success my-button" type="submit" value="Изменить">
+</form>
+
+{% endblock content %}

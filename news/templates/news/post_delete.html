@@ -1,0 +1,32 @@
+{% extends 'layout/default.html' %}
+
+{% block title %}
+    Удаление статьи
+{% endblock title %}
+
+{% block content %}
+    <h3>Вы действительно хотите удалить статью?</h3>
+    <div class="card">
+        <div class="card-header">
+            <h3>{{ post.title }} </h3>
+            <div>
+                Автор: <span class="badge bg-info">{{ post.author }}</span>
+                Тип: <span class="badge bg-info">{{ post.get_categoryType_display }}</span>
+
+                Категории:
+                <span class="badge bg-info">
+                    {% for k in  post.postCategory.all %}
+                        {{ k }},
+                    {% endfor %}
+                </span>
+
+            </div>
+        </div>
+        <div class="card-body">{{ post.text }}</div>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <input class="btn btn-success my-button" type="submit" value="Подтвердить">
+    </form>
+
+{% endblock content %}
